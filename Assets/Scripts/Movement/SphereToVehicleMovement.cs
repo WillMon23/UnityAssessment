@@ -21,6 +21,8 @@ public class SphereToVehicleMovement : MonoBehaviour
 
 
     bool _jump;
+    [SerializeField]
+    float _jumpForce;
 
     private float _turnDirection;
 
@@ -42,6 +44,8 @@ public class SphereToVehicleMovement : MonoBehaviour
         //Sets car postions to shpere 
         transform.position = _rigidbody.transform.position;
 
+        transform.position = new Vector3(transform.position.x, transform.position.y - 1, transform.position.z);
+
         //Sets the multiplies the direction by the speed and sets it to a variable 
         _moveInputAndSpeed = _turnDirection * _turnSpeed;
 
@@ -51,23 +55,16 @@ public class SphereToVehicleMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _grounded = false;
-        RaycastHit hasHit;
+        _rigidbody.AddForce(Vector3.right * _moveInputAndSpeed, ForceMode.Acceleration);
 
-        //borad cast a line from the point of orgin to the going doen the Y-axis if the hit a layer labled "Floor"
-        if(Physics.Raycast(_groundRayPoint.position, -transform.up, out hasHit, _whatIsGround))
+        _rigidbody.AddForce(Vector3.forward * _forwardSpeed, ForceMode.Acceleration);
+
+        if (_jump && transform.position.y <= 0)
         {
-            //Set the grounded bool to be true
-            _grounded = true;
+            _rigidbody.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
+            _turnDirection = 0;
         }
-
-        if (_grounded)
-        {
-            _rigidbody.AddForce(Vector3.forward * _forwardSpeed, ForceMode.Acceleration);
-        }
-        else
-            _rigidbody.AddForce(Vector3.up * -_gravityForce * _forwardSpeed * 10);
-
+        _jump = false;
     }
 
     //Which ever button clicks this will insert a type of turn value 1 or -1;
@@ -76,7 +73,7 @@ public class SphereToVehicleMovement : MonoBehaviour
         if (_turnDirection != turnDirection && _turnDirection != 0)
             _turnDirection = 0;
         else 
-            _turnDirection = turnDirection;
+            _turnDirection += turnDirection;
     }
 
     //Event created for a slider
@@ -84,5 +81,11 @@ public class SphereToVehicleMovement : MonoBehaviour
     public void Acceleration(float currentForwardSpeed)
     {
         _forwardSpeed = currentForwardSpeed;
+    }
+
+    //Event 
+    public void TryToJump()
+    {
+        _jump = true;
     }
 }
