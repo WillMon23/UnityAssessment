@@ -30,6 +30,14 @@ You can Pause
 
 While in Pause you can rest the game or just return to the main menu 
 
+Use ESC to minimise the game 
+
+### Bugs Found 
+
+How TO Play Button and Quit Button Breaks The Game 
+
+If So Use ESC to minimise the game 
+
 
 ### Link To My Game Here:
 There is already a online build ready for testing 
