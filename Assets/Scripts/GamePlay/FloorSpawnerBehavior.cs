@@ -6,6 +6,8 @@ public class FloorSpawnerBehavior : MonoBehaviour
 {
     [SerializeField] private GameObject[] _floorSpawner;
     private float _spawnTimer = 0, _lifeTime = 0;
+    GameObject clonedfloor;
+
 
     [SerializeField]
     private float _cooldown;
@@ -14,15 +16,17 @@ public class FloorSpawnerBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int spacedRng = Random.Range(0, 3);
+        int spacedRng = Random.Range(1, 4);
         int Spawnrng = Random.Range(0, 3);
         GameObject newFloor = (GameObject)_floorSpawner.GetValue(Spawnrng);
 
-        if (_spawnTimer >= _cooldown && spacedRng < 2)
+        if (_spawnTimer >= _cooldown)
         {
-            Instantiate(newFloor, new Vector3(transform.position.x, 0, transform.position.z + 30), new Quaternion());
+            clonedfloor =  Instantiate(newFloor, new Vector3(transform.position.x * spacedRng,0, transform.position.z + 30), new Quaternion());
             _spawnTimer = 0;
         }
+
+
         if (_lifeTime >= _timedOut)
         {
             Destroy(this);

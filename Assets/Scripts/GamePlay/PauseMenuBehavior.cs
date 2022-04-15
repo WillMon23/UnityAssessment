@@ -9,18 +9,21 @@ public class PauseMenuBehavior : MonoBehaviour
     public static bool gameIsPaused;
     public Text scoreText;
 
+
     //Dispalys Score To the Menu 
     public void PasueDisplay(int score)
     {
-        scoreText.text = "Score: " + score;
+        
     }
 
     public void PauseGame()
     {
         if (!pauseMenu.activeInHierarchy)
         {
+            
             pauseMenu.SetActive(true);
             gameObject.SetActive(false);
+            scoreText.text = "Score: " + ScoreManagerBehavior.currentScore;
             gameIsPaused = true;
             Time.timeScale = 0f;
         }

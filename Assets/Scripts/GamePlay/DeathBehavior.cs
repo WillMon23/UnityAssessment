@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DeathBehavior : MonoBehaviour
 {
+    public float deathTrashHold = 10;
     private HealthBehavior _health;
     [SerializeField] private PauseMenuBehavior _pause;
     // Start is called before the first frame update
@@ -19,5 +20,8 @@ public class DeathBehavior : MonoBehaviour
         {
             _pause.PauseGame();
         }
+
+        if (transform.position.y <= -deathTrashHold)
+            _pause.PauseGame();
     }
 }
