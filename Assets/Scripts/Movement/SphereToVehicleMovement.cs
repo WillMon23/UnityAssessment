@@ -12,14 +12,6 @@ public class SphereToVehicleMovement : MonoBehaviour
 
     [SerializeField] private float _turnSpeed;
 
-    private float _gravityForce;
-    private bool _grounded;
-
-    public LayerMask _whatIsGround;
-    public float _groundRayLength;
-    public Transform _groundRayPoint;
-
-
     bool _jump;
     [SerializeField]
     float _jumpForce;
@@ -59,7 +51,7 @@ public class SphereToVehicleMovement : MonoBehaviour
 
         _rigidbody.AddForce(Vector3.forward * _forwardSpeed, ForceMode.Acceleration);
 
-        if (_jump && transform.position.y <= 0)
+        if (_jump && transform.position.y <= .3 && transform.position.y >= -1 )
         {
             _rigidbody.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
             _turnDirection = 0;

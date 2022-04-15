@@ -7,6 +7,8 @@ public class HealthBehavior : MonoBehaviour
     [SerializeField]
     private float _health;
 
+    private float _deathTrashhold;
+
     public float Health { get { return _health; } set { _health = value; } }
     
     public void TakeDamaage(float damageTaken)
@@ -14,8 +16,8 @@ public class HealthBehavior : MonoBehaviour
         _health -= damageTaken;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void FixedUpdate()
     {
-        
+        _health -= Time.fixedDeltaTime;
     }
 }
