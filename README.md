@@ -14,7 +14,7 @@ Each peace of raod you managed to land on gives you points
 
 As Time pass so does your Vehicles Gas passes 
 
-Once you hit zero its game over
+Once you hit zero its game over and of course if you happen to slip 
 
 
 [Still in Development]
