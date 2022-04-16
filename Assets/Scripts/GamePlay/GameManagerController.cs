@@ -5,6 +5,8 @@ public class GameManagerController : MonoBehaviour
 {
     private Scene thisScene;
 
+    [SerializeField] private GameObject _howToPlay;
+
     // Update is called once per frame
     void Update()
     {
@@ -31,5 +33,10 @@ public class GameManagerController : MonoBehaviour
     public void MainMenu()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void HowTOPlay()
+    {
+
     }
 }
