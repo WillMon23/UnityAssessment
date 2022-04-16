@@ -49,3 +49,6 @@ https://willmon23.github.io/UnityAssessment/Player
 ### Any Feedback is Appreciated 
 https://docs.google.com/forms/d/1QqVKXQcRwC6nAVNspIoxuL7-Zm3BBiKPLzEDwLGE35A/edit
 
+All Assets were created or pulled from Lodis
+
+
