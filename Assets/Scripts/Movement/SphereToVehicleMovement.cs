@@ -36,7 +36,7 @@ public class SphereToVehicleMovement : MonoBehaviour
         //Sets car postions to shpere 
         transform.position = _rigidbody.transform.position;
 
-        transform.position = new Vector3(transform.position.x, transform.position.y - 1, transform.position.z);
+        transform.position = new Vector3(transform.position.x, transform.position.y - .5f, transform.position.z);
 
         //Sets the multiplies the direction by the speed and sets it to a variable 
         _moveInputAndSpeed = _turnDirection * _turnSpeed;

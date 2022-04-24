@@ -22,6 +22,7 @@ public class GameManagerController : MonoBehaviour
     {
         if (PauseMenuBehavior.gameIsPaused)
             Time.timeScale = 1f;
+        ScoreManagerBehavior.currentScore = 0;
         SceneManager.LoadScene(thisScene.name);
     }
 
@@ -32,6 +33,7 @@ public class GameManagerController : MonoBehaviour
 
     public void MainMenu()
     {
+        ScoreManagerBehavior.currentScore = 0;
         SceneManager.LoadScene("MainMenu");
     }
 

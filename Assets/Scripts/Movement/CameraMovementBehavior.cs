@@ -10,10 +10,10 @@ public class CameraMovementBehavior : MonoBehaviour
 
     private void Awake()
     {
-        transform.position = new Vector3(_player.position.x + -0.01316148f, 5f, _player.position.z + -10f);
+        transform.position = new Vector3(_player.position.x, 2f, _player.position.z - 3.5f);
     }
     void Update()
     {
-        transform.position = new Vector3(_player.position.x + -0.01316148f, 5f, _player.position.z + -10f); 
+        transform.position = new Vector3(_player.position.x ,3f, _player.position.z - 10.5f);
     }
 }

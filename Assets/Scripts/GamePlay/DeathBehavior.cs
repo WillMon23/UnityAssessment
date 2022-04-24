@@ -16,12 +16,16 @@ public class DeathBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(_health.Health <= 0)
-        {
+        if (_health.Health <= 0)
             _pause.PauseGame();
-        }
+
+
+
 
         if (transform.position.y <= -deathTrashHold)
             _pause.PauseGame();
+     
+
+
     }
 }

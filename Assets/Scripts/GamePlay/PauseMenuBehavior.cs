@@ -10,11 +10,6 @@ public class PauseMenuBehavior : MonoBehaviour
     public Text scoreText;
 
 
-    //Dispalys Score To the Menu 
-    public void PasueDisplay(int score)
-    {
-        
-    }
 
     public void PauseGame()
     {
