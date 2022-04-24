@@ -19,9 +19,6 @@ public class DeathBehavior : MonoBehaviour
         if (_health.Health <= 0)
             _pause.PauseGame();
 
-
-
-
         if (transform.position.y <= -deathTrashHold)
             _pause.PauseGame();
      

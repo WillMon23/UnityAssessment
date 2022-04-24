@@ -39,6 +39,11 @@ public class GameManagerController : MonoBehaviour
 
     public void HowTOPlay()
     {
-
+        if (_howToPlay)
+        {
+            if (!_howToPlay.active)
+                _howToPlay.active = true;
+            else _howToPlay.active = false;
+        }
     }
 }
