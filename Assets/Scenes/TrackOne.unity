@@ -479,11 +479,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92b88783f713a854ba4097d342cd085a, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f3466a9c7ea83b40ba2f9f97dcd1bd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _refrenceAspectRatio: {x: 9, y: 16}
-  _zoomScale: {x: 1, y: 1, z: 1}
+  _referenceAspectRatio: {x: 9, y: 16}
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -636,6 +635,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: MainMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 4406044009234908915, guid: a64b57f88e7468f42a96e169c9c1f0a3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4406044009425970449, guid: a64b57f88e7468f42a96e169c9c1f0a3, type: 3}
       propertyPath: _playerHeath
       value: 
@@ -643,6 +646,10 @@ PrefabInstance:
     - target: {fileID: 4406044009775635007, guid: a64b57f88e7468f42a96e169c9c1f0a3, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4406044009827779195, guid: a64b57f88e7468f42a96e169c9c1f0a3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4406044009964575147, guid: a64b57f88e7468f42a96e169c9c1f0a3, type: 3}
       propertyPath: m_Text
@@ -873,6 +880,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3e5cfeb167aa1c478636e4f1e552d05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1803487811 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4406044010056704019, guid: a64b57f88e7468f42a96e169c9c1f0a3, type: 3}
+  m_PrefabInstance: {fileID: 1251492382}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1889665560 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1068811127012553824, guid: 3c22638687756fc4982ae20f03437c4c, type: 3}
@@ -891,4 +909,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathTrashHold: 10
+  _pauseState: {fileID: 1803487811}
   _pause: {fileID: 1140859146}

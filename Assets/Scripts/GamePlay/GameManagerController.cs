@@ -15,6 +15,7 @@ public class GameManagerController : MonoBehaviour
 
     public void GameOver()
     {
+        Debug.LogWarning("Game was Quit");
         Application.Quit();
     }
 
