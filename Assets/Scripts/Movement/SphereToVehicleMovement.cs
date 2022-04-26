@@ -5,35 +5,32 @@ using UnityEngine.UI;
 
 public class SphereToVehicleMovement : MonoBehaviour
 {
-
+    //Get the refrence to the rigidbody 
     [SerializeField] private Rigidbody _rigidbody;
-
+    //Sets some adjustable values for forward speed max speed and minimal speed 
     [SerializeField] private float _forwardSpeed, _maxSpeed, _minSpeed;
-
+    //Sets the turing speed 
     [SerializeField] private float _turnSpeed;
 
-    private float _gravityForce;
-    private bool _grounded;
-
-    public LayerMask _whatIsGround;
-    public float _groundRayLength;
-    public Transform _groundRayPoint;
-
-
+    //Check if the car is jumping at the moment 
     bool _jump;
+    //The force being applied to the leap 
     [SerializeField]
     float _jumpForce;
 
+    //The direction that is bring turned 
     private float _turnDirection;
 
+    //Jst the direction and speed being applied 
     private float _moveInputAndSpeed;
-
 
 
     // Start is called before the first frame update
     void Start()
     {
+        //Removes the car from the sphere 
         _rigidbody.transform.parent = null;
+        //Makes sure that there is no turning at the start of the car 
         _turnDirection = 0;
 
     }
@@ -44,7 +41,7 @@ public class SphereToVehicleMovement : MonoBehaviour
         //Sets car postions to shpere 
         transform.position = _rigidbody.transform.position;
 
-        transform.position = new Vector3(transform.position.x, transform.position.y - 1, transform.position.z);
+        transform.position = new Vector3(transform.position.x, transform.position.y - .5f, transform.position.z);
 
         //Sets the multiplies the direction by the speed and sets it to a variable 
         _moveInputAndSpeed = _turnDirection * _turnSpeed;
@@ -59,7 +56,7 @@ public class SphereToVehicleMovement : MonoBehaviour
 
         _rigidbody.AddForce(Vector3.forward * _forwardSpeed, ForceMode.Acceleration);
 
-        if (_jump && transform.position.y <= 0)
+        if (_jump && transform.position.y <= .3 && transform.position.y >= -1 )
         {
             _rigidbody.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
             _turnDirection = 0;
@@ -83,7 +80,7 @@ public class SphereToVehicleMovement : MonoBehaviour
         _forwardSpeed = currentForwardSpeed;
     }
 
-    //Event 
+    //Event for when to jump 
     public void TryToJump()
     {
         _jump = true;
