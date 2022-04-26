@@ -30,9 +30,5 @@ public class DeathBehavior : MonoBehaviour
             _pause.PauseGame();
             _pauseState.text = "You Fell!";
         }
-
-     
-
-
     }
 }
