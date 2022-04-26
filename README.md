@@ -4,6 +4,14 @@ UnityAssessment
 
 # Long Road Trip
 
+### How to Open Game
+
+To get your hand on pc you'll have to download the build then click on the Windows build folder 
+
+Once there just click on the UnityAssessment.exe to get it started 
+
+Or Just Fallow the Link at the bottom of this page for a short 
+
 ### Description 
 
 So a bridge has just collapsed and you as the driver have to drive your way out of this mess 
@@ -32,11 +40,6 @@ While in Pause you can rest the game or just return to the main menu
 
 Use ESC to minimise the game 
 
-### Bugs Found 
-
-How TO Play Button and Quit Button Breaks The Game 
-
-If So Use ESC to minimise the game 
 
 
 ### Link To My Game Here:
