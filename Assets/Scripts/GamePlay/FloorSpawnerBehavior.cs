@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Handles the floor spawn and its spawn timer 
+//Creates a random floor based on the objects current position 
 public class FloorSpawnerBehavior : MonoBehaviour
 {
     //Sets the game objects that are going to be spawned 

@@ -5,27 +5,32 @@ using UnityEngine.UI;
 
 public class SphereToVehicleMovement : MonoBehaviour
 {
-
+    //Get the refrence to the rigidbody 
     [SerializeField] private Rigidbody _rigidbody;
-
+    //Sets some adjustable values for forward speed max speed and minimal speed 
     [SerializeField] private float _forwardSpeed, _maxSpeed, _minSpeed;
-
+    //Sets the turing speed 
     [SerializeField] private float _turnSpeed;
 
+    //Check if the car is jumping at the moment 
     bool _jump;
+    //The force being applied to the leap 
     [SerializeField]
     float _jumpForce;
 
+    //The direction that is bring turned 
     private float _turnDirection;
 
+    //Jst the direction and speed being applied 
     private float _moveInputAndSpeed;
-
 
 
     // Start is called before the first frame update
     void Start()
     {
+        //Removes the car from the sphere 
         _rigidbody.transform.parent = null;
+        //Makes sure that there is no turning at the start of the car 
         _turnDirection = 0;
 
     }
@@ -75,7 +80,7 @@ public class SphereToVehicleMovement : MonoBehaviour
         _forwardSpeed = currentForwardSpeed;
     }
 
-    //Event 
+    //Event for when to jump 
     public void TryToJump()
     {
         _jump = true;

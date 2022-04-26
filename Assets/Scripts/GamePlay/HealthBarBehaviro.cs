@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+//The Players Health Dispaly Bar
 public class HealthBarBehaviro : MonoBehaviour
 {
     //To get the refence of the slider 

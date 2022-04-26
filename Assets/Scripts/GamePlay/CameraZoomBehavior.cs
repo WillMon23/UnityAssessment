@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+//Changes the camera position based on the aspect ratio 
 public class CameraZoomBehavior : MonoBehaviour
 {
     //gets a gets a refrence to the camera  
