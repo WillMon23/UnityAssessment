@@ -44,7 +44,7 @@ public class VehicleMovementBehavior : MonoBehaviour
         if (Jump && transform.position.y <= 0)
             _rigidbody.AddForce(new Vector3(0, _hieght, 0), ForceMode.Impulse);
 
-        if (transform.position.y <= 0)
+        if (transform.position.y <= 2)
             _jump = false;
 
     }

@@ -17,12 +17,12 @@ public class FloorSpawnerBehavior : MonoBehaviour
     void Update()
     {
         int spacedRng = Random.Range(1, 4);
-        int Spawnrng = Random.Range(0, 3);
+        int Spawnrng = Random.Range(0, _floorSpawner.Length);
         GameObject newFloor = (GameObject)_floorSpawner.GetValue(Spawnrng);
 
         if (_spawnTimer >= _cooldown)
         {
-            clonedfloor =  Instantiate(newFloor, new Vector3(transform.position.x * spacedRng,0, transform.position.z + 30), new Quaternion());
+            clonedfloor =  Instantiate(newFloor, new Vector3(transform.position.x * spacedRng,0, transform.position.z + 40), new Quaternion());
             _spawnTimer = 0;
         }
 

@@ -13,6 +13,7 @@ public class SphereToVehicleMovement : MonoBehaviour
     [SerializeField] private float _turnSpeed;
 
     bool _jump;
+
     [SerializeField]
     float _jumpForce;
 
@@ -33,6 +34,12 @@ public class SphereToVehicleMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+    }
+
+    private void FixedUpdate()
+    {
+
         //Sets car postions to shpere 
         transform.position = _rigidbody.transform.position;
 
@@ -41,17 +48,16 @@ public class SphereToVehicleMovement : MonoBehaviour
         //Sets the multiplies the direction by the speed and sets it to a variable 
         _moveInputAndSpeed = _turnDirection * _turnSpeed;
 
-        //Get the transform rotation and set it by the Quaterion allowing me to set it X,Y,Z by scaling it by a Vector 3 
-        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, _moveInputAndSpeed * Time.deltaTime, 0f));
-    }
+        
 
-    private void FixedUpdate()
-    {
-        _rigidbody.AddForce(Vector3.right * _moveInputAndSpeed, ForceMode.Acceleration);
+        transform.position = transform.position + new Vector3(transform.position.x, 0, 0);
+
+
+
 
         _rigidbody.AddForce(Vector3.forward * _forwardSpeed, ForceMode.Acceleration);
 
-        if (_jump && transform.position.y <= .3 && transform.position.y >= -1 )
+        if (_jump && transform.position.y <= .3 && transform.position.y >= -1)
         {
             _rigidbody.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
             _turnDirection = 0;
@@ -59,14 +65,6 @@ public class SphereToVehicleMovement : MonoBehaviour
         _jump = false;
     }
 
-    //Which ever button clicks this will insert a type of turn value 1 or -1;
-    public void ButtonTurnDirection(int turnDirection) 
-    {
-        if (_turnDirection != turnDirection && _turnDirection != 0)
-            _turnDirection = 0;
-        else 
-            _turnDirection += turnDirection;
-    }
 
     //Event created for a slider
     //Slider will adjust the speed going forwards 
@@ -79,5 +77,23 @@ public class SphereToVehicleMovement : MonoBehaviour
     public void TryToJump()
     {
         _jump = true;
+    }
+
+    //Which ever button clicks this will insert a type of turn value 1 or -1;
+    public void ButtonTurnDirection(int turnDirection)
+    {
+        if (_turnDirection != turnDirection && _turnDirection != 0)
+        {
+            _turnDirection = 0;
+            _rigidbody.AddForce(Vector3.right * turnDirection * 20, ForceMode.Acceleration);
+        }
+        else
+        {
+            _turnDirection += turnDirection;
+            _rigidbody.AddForce(Vector3.right * turnDirection * 20, ForceMode.Acceleration);
+            //Get the transform rotation and set it by the Quaterion allowing me to set it X,Y,Z by scaling it by a Vector 3 
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, turnDirection * Time.deltaTime, 0f));
+        }
+
     }
 }
