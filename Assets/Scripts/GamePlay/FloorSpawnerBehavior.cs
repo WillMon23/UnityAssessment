@@ -2,38 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//Handles the floor spawn and its spawn timer 
-//Creates a random floor based on the objects current position 
 public class FloorSpawnerBehavior : MonoBehaviour
 {
-    //Sets the game objects that are going to be spawned 
     [SerializeField] private GameObject[] _floorSpawner;
+    private float _spawnTimer = 0, _lifeTime = 0;
+    GameObject clonedfloor;
 
-    //Time being callculated 
-    private float _spawnTimer = 0;
 
-    //Time till next cooldown
     [SerializeField]
     private float _cooldown;
+    [SerializeField]
+    private float _timedOut;
     // Update is called once per frame
     void Update()
     {
-        //variable created to hold a random number 
-        //value will be used to place the spawn in one of the random locations 
         int spacedRng = Random.Range(1, 4);
-        //Witch ransom floor will spawn 
-        int spawnrng = Random.Range(0, 3);
-        //Holds the game object picked out if the array 
-        GameObject newFloor = (GameObject)_floorSpawner.GetValue(spawnrng);
+        int Spawnrng = Random.Range(0, _floorSpawner.Length);
+        GameObject newFloor = (GameObject)_floorSpawner.GetValue(Spawnrng);
 
-        //Clones the object to the scene 
         if (_spawnTimer >= _cooldown)
         {
-            Instantiate(newFloor, new Vector3(transform.position.x * spacedRng, 0, transform.position.z + 30), new Quaternion());
-            //Destroys this compnent 
-            Destroy(this);
+            clonedfloor =  Instantiate(newFloor, new Vector3(transform.position.x * spacedRng,0, transform.position.z + 40), new Quaternion());
+            _spawnTimer = 0;
         }
-        //adds delta time to the spawntimer
+
+
+        if (_lifeTime >= _timedOut)
+        {
+            Destroy(this);
+            _lifeTime = 0;
+        }
+
         _spawnTimer += Time.deltaTime;
+        _lifeTime += Time.deltaTime;
     }
 }
